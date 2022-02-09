@@ -10,11 +10,11 @@ name: OpenWrt-CI
 on:
   schedule:
     - cron: 0 20 * * *
-  #release:
-    #types: [published]
-  push:
-    branches:
-      - master
+  release:
+    types: [published]
+  #push:
+    #branches:
+      #- master
 
 jobs:
 
@@ -56,11 +56,11 @@ jobs:
       - name: Generate configuration file
         run: |
           make defconfig
-          cat >> .config <<EOF
-          CONFIG_TARGET_rockchip=y
-          CONFIG_TARGET_rockchip_armv8=y
-          CONFIG_TARGET_rockchip_armv8_DEVICE_xunlong_orangepi-r1-plus-lts=y
-          EOF
+          #cat >> .config <<EOF
+          #CONFIG_TARGET_rockchip=y
+          #CONFIG_TARGET_rockchip_armv8=y
+          #CONFIG_TARGET_rockchip_armv8_DEVICE_xunlong_orangepi-r1-plus-lts=y
+          #EOF
           
       - name: Make download
         run: |
